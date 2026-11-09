@@ -108,14 +108,6 @@ const myHomePartial: Partial<HomeMessages> & {
   serviceTitle: "ဝန်ဆောင်မှုများ",
   serviceIntro:
     "ဘာသာစကားကြောင့် အရေးကြီးသော စာရင်းကိုင်ဆုံးဖြတ်ချက်များ ပိုမိုခက်ခဲမသွားသင့်ပါဘူး။ KMA Advisory မှာ မြန်မာ သို့မဟုတ် အင်္ဂလိပ်ဘာသာဖြင့်မေးမြန်းပြီး လိုအပ်သော ဝန်ဆောင်မှု ရရှိရန် အခုပဲ ဆက်သွယ်လိုက်ပါ။",
-  services: [
-    {
-      code: "04",
-      title: "အခွန်(tax) ဆိုင်ရာ စာရွက်စာတမ်းများ",
-      body: "ပြင်ဆင်ခြင်းနှင့် တင်သွင်းရန် စီစဉ်ခြင်း",
-    },
-  ],
-  comingSoonLabel: "မကြာမီ",
   perspectiveBody:
     "ဘာသာစကားကြောင့် အရေးကြီးသော စာရင်းကိုင်ဆုံးဖြတ်ချက်များ ပိုမိုခက်ခဲမသွားသင့်ပါဘူး။",
   contactTitle: "မေးခွန်းတစ်ခုဖြင့် စတင်ပါ။",
@@ -140,14 +132,16 @@ export function getHomeMessages(locale: Locale): HomeMessages {
 
 export const footerCopy = {
   en: {
-    blurb: "Placeholder text.",
+    blurb:
+      "Accounting and business advice in English and Burmese for Australian small businesses.",
     pages: "Pages",
     contact: "Contact",
     privacy: "Privacy",
     placeholders: "Contact details are placeholders until confirmed.",
   },
   my: {
-    blurb: "Placeholder text.",
+    blurb:
+      "KMA Advisory သည် Australia ရှိ စာရင်းကိုင်ဆိုင်ရာ လိုအပ်ချက်များကို ကူညီပေးရန် ရည်ရွယ်ပါသည်။",
     pages: "Pages",
     contact: "Contact",
     privacy: "Privacy",

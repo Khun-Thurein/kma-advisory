@@ -1,3 +1,4 @@
+import { getHomeMessages } from "@/lib/messages";
 import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -10,14 +11,9 @@ export const metadata = createPageMetadata({
   path: "/burmese-accountant-australia",
 });
 
-const supportAreas = [
-  "Tax and lodgement preparation",
-  "BAS and GST reporting support",
-  "Company and family-group reporting",
-  "SMSF accounting support",
-  "Business reporting and advisory",
-  "Audit preparation and record coordination",
-];
+const supportAreas = getHomeMessages("en").services.map(
+  (service) => service.title,
+);
 
 export default function BurmeseAccountantAustraliaPage() {
   return (
