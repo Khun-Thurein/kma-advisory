@@ -115,6 +115,10 @@ const myHomePartial: Partial<HomeMessages> & {
     "လိုအပ်သော ဝန်ဆောင်မှုနှင့် အရေးကြီးသည့် ရက်စွဲကို ပြောပြပါ။ လုပ်ငန်းစတင်ပြီးနောက် နောက်တစ်ဆင့် ပြင်ဆင်ရန် ထိုအချက်အလက်များကို အသုံးပြုပါမည်။",
 };
 
+export function textLang(text: string): "my" | "en" {
+  return /[\u1000-\u109F]/.test(text) ? "my" : "en";
+}
+
 export function getHomeMessages(locale: Locale): HomeMessages {
   if (locale === "en") return enHome;
 

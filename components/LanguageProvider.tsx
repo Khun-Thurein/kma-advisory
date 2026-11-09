@@ -34,7 +34,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = locale === "my" ? "my" : "en-AU";
     document.body.classList.toggle("myanmar-copy", locale === "my");
     window.localStorage.setItem(STORAGE_KEY, locale);
   }, [locale]);

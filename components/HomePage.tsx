@@ -11,7 +11,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { CpaCredential } from "@/components/CpaCredential";
 import { useLanguage } from "@/components/LanguageProvider";
 import { ServiceCards } from "@/components/ServiceCards";
-import { getHomeMessages } from "@/lib/messages";
+import { getHomeMessages, textLang } from "@/lib/messages";
 import { site } from "@/lib/site";
 
 export function HomePage() {
@@ -19,7 +19,7 @@ export function HomePage() {
   const copy = getHomeMessages(locale);
 
   return (
-    <main id="main-content" lang={locale === "my" ? "my" : "en"}>
+    <main id="main-content">
       <section className="flex min-h-[calc(85svh-3.6125rem)] flex-col bg-paper">
         <div className="relative flex flex-1 items-center bg-paper text-ink">
           <div className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-16 pt-12 lg:grid-cols-2 lg:grid-rows-[auto_auto_auto_auto] lg:items-center lg:gap-x-14 lg:gap-y-0 lg:pb-24 lg:pt-20">
@@ -27,9 +27,13 @@ export function HomePage() {
               {copy.eyebrow}
             </p>
             <h1 className="max-w-xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:col-start-1 lg:row-start-2 lg:mt-6 lg:text-[3.5rem]">
-              {copy.heroTitleLine1}
+              <span lang={textLang(copy.heroTitleLine1)}>
+                {copy.heroTitleLine1}
+              </span>
               <br />
-              {copy.heroTitleLine2}
+              <span lang={textLang(copy.heroTitleLine2)}>
+                {copy.heroTitleLine2}
+              </span>
             </h1>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:col-start-2 lg:row-span-4 lg:row-start-1 lg:aspect-auto lg:min-h-[28rem]">
               <Image
@@ -41,7 +45,10 @@ export function HomePage() {
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
-            <p className="max-w-xl text-lg leading-8 text-stone lg:col-start-1 lg:row-start-3 lg:mt-6">
+            <p
+              lang={textLang(copy.heroBody)}
+              className="max-w-xl text-lg leading-8 text-stone lg:col-start-1 lg:row-start-3 lg:mt-6"
+            >
               {copy.heroBody}
             </p>
             <div className="flex flex-row gap-3 lg:col-start-1 lg:row-start-4 lg:mt-8">
@@ -90,11 +97,17 @@ export function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">
                 {copy.serviceEyebrow}
               </p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-ink">
+              <h2
+                lang={textLang(copy.serviceTitle)}
+                className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-ink"
+              >
                 {copy.serviceTitle}
               </h2>
             </div>
-            <p className="max-w-xl text-base leading-7 text-stone lg:justify-self-end">
+            <p
+              lang={textLang(copy.serviceIntro)}
+              className="max-w-xl text-base leading-7 text-stone lg:justify-self-end"
+            >
               {copy.serviceIntro}
             </p>
           </div>
@@ -114,10 +127,16 @@ export function HomePage() {
             />
           </div>
           <div>
-            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white sm:text-5xl">
+            <h2
+              lang={textLang(copy.perspectiveTitle)}
+              className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-white sm:text-5xl"
+            >
               {copy.perspectiveTitle}
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-white/70">
+            <p
+              lang={textLang(copy.perspectiveBody)}
+              className="mt-6 max-w-xl text-base leading-8 text-white/70"
+            >
               {copy.perspectiveBody}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -144,10 +163,16 @@ export function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">
               {copy.contactEyebrow}
             </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-ink">
+            <h2
+              lang={textLang(copy.contactTitle)}
+              className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-ink"
+            >
               {copy.contactTitle}
             </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-stone">
+            <p
+              lang={textLang(copy.contactBody)}
+              className="mt-5 max-w-md text-base leading-7 text-stone"
+            >
               {copy.contactBody}
             </p>
             <dl className="mt-8 space-y-5 border-t border-ink/15 pt-6 text-sm">

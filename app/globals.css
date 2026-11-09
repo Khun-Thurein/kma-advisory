@@ -47,15 +47,19 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Manrope has no Myanmar glyphs, so English stays in Manrope and Burmese
+   characters fall through to the Myanmar fonts. */
 .myanmar-copy {
   font-family:
-    "Noto Sans Myanmar", "Myanmar Text", "Padauk", var(--font-manrope),
+    var(--font-manrope), "Noto Sans Myanmar", "Myanmar Text", "Padauk",
     ui-sans-serif, system-ui, sans-serif;
 }
 
-.myanmar-copy :is(h1, h2, h3) {
-  font-family: var(--font-myanmar-title), "Noto Sans Myanmar", "Myanmar Text",
-    "Padauk", ui-sans-serif, system-ui, sans-serif;
+.myanmar-copy :is(h1, h2, h3):lang(my),
+.myanmar-copy :is(h1, h2, h3) :lang(my) {
+  font-family: var(--font-manrope), var(--font-myanmar-title),
+    "Noto Sans Myanmar", "Myanmar Text", "Padauk", ui-sans-serif, system-ui,
+    sans-serif;
   letter-spacing: 0;
   line-height: 1.65;
 }
