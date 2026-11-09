@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f8f7f2;
+  --ink: #002f37;
+  --stone: #526c70;
+  --brand: #ff7900;
+  --brand-dark: #013b45;
+  --brand-pale: #eef5f4;
+  --teal: #013b45;
+  --teal-dark: #002f37;
+  --teal-mid: #0c4a53;
+  --teal-surface: #eef5f4;
+  --accent: #ff7900;
+  --award: #e8b43f;
+  --muted-light: #a9c1c4;
+  --muted-dark: #526c70;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-stone: var(--stone);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-pale: var(--brand-pale);
+  --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal-mid: var(--teal-mid);
+  --color-teal-surface: var(--teal-surface);
+  --color-accent: var(--accent);
+  --color-award: var(--award);
+  --color-muted-light: var(--muted-light);
+  --color-muted-dark: var(--muted-dark);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+}
+
+.myanmar-copy {
+  font-family:
+    "Noto Sans Myanmar", "Myanmar Text", "Padauk", var(--font-manrope),
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+.myanmar-copy :is(h1, h2, h3) {
+  font-family: var(--font-myanmar-title), "Noto Sans Myanmar", "Myanmar Text",
+    "Padauk", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-dark);
+  outline-offset: 3px;
+}
+
+@keyframes hero-settle {
+  from {
+    opacity: 0.65;
+    transform: translateY(14px) scale(1.015);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes menu-open {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-hero-media {
+  animation: hero-settle 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.motion-menu {
+  animation: menu-open 180ms ease-out both;
+}
+
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 520ms ease,
+    transform 520ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.motion-ready [data-reveal="scale"] {
+  transform: translateY(16px) scale(0.985);
+}
+
+.motion-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.motion-ready [data-delay="1"] {
+  transition-delay: 70ms;
+}
+
+.motion-ready [data-delay="2"] {
+  transition-delay: 140ms;
+}
+
+.motion-ready [data-delay="3"] {
+  transition-delay: 210ms;
+}
+
+.motion-control,
+.motion-card,
+.motion-image {
+  transition:
+    transform 220ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .motion-control:hover {
+    transform: translateY(-2px);
+  }
+
+  .motion-card:hover {
+    transform: translateY(-4px);
+    border-color: rgb(255 121 0 / 0.5);
+    box-shadow: 0 18px 44px rgb(0 47 55 / 0.11);
+  }
+
+  .group:hover .motion-image {
+    transform: scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .motion-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
