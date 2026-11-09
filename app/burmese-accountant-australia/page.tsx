@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { createPageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -62,13 +61,6 @@ export default function BurmeseAccountantAustraliaPage() {
               Ask questions in Burmese or English and receive a clear explanation
               of the information and dates that matter.
             </p>
-            <Link
-              href="/?lang=my"
-              className="mt-7 inline-flex min-h-11 items-center text-sm font-semibold text-teal underline decoration-accent decoration-2 underline-offset-4"
-              lang="my"
-            >
-              မြန်မာဘာသာဖြင့် ဖတ်ရန်
-            </Link>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {supportAreas.map((area) => (

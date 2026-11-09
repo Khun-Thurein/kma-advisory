@@ -22,9 +22,6 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 function readStoredLocale(): Locale {
   if (typeof window === "undefined") return "en";
-  const params = new URLSearchParams(window.location.search);
-  const fromQuery = params.get("lang");
-  if (fromQuery === "my" || fromQuery === "en") return fromQuery;
   const stored = window.localStorage.getItem(STORAGE_KEY);
   return stored === "my" ? "my" : "en";
 }
